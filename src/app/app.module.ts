@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { TodolistComponent } from './todolist/todolist.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+    FormsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

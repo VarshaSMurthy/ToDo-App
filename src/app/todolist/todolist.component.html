@@ -1,1 +1,48 @@
-<p>todolist works!</p>
+<div class="content">
+    <section class="heading-section">
+        <h1 class="title is-2 has-text-centered">ToDo List</h1>
+    </section>
+
+    <div class="container">
+        <div class="add-todo-box">
+            <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+                <div class="field is-grouped my-0">
+                    <p class="control is-expanded">
+                        <input ngModel #textField="ngModel" required minlength="3" name="text" class="input" type="text"
+                            placeholder="Type todo item here ...">
+                    </p>
+                    <p class="control">
+                        <button type="submit" class="button add">
+                            Add
+                        </button>
+                    </p>
+                </div>
+                <div *ngIf="textField.invalid">
+                    <p class="help is-danger" *ngIf="textField.invalid">Please enter your ToDo.</p>
+                    <p class="help is-danger" *ngIf="textField.invalid">Minimum lenght must be 2 character.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="todo-list">
+                <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
+                    <div class="check-box">
+                        <i class="material-icons">check</i>
+                    </div>
+                    <div class="todo-text">
+                        {{todo.text}}
+                    </div>
+                    <div class="todo-cotrols-box">
+                        <div class="todo-control-button is-danger">
+                            <i class="material-icons">delete</i>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
