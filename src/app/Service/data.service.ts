@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  todos: Todo[] =[new Todo('This is a text',true),
-                  new Todo('There are 3 types of cloud available i.e. public, private and hybrid cloud.')
+  todos: Todo[] =[new Todo(1,'This is a text',true),
+                  new Todo(2,'There are 3 types of cloud available i.e. public, private and hybrid cloud.')
 ]
   constructor(private http: HttpClient) { }
 
@@ -21,8 +21,11 @@ export class DataService {
   // getAllTodos(){
   //   return this.todos;
   // }
+  // addTodo(todo:Todo){
+  //   this.todos.push(todo);
+  // }
   addTodo(todo:Todo){
-    this.todos.push(todo);
+    return this.http.post<Todo[]>(this.todoUrl, todo);
   }
   deleteTodo(index:number){
     this.todos.splice(index, 1)
