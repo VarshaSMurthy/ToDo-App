@@ -3,7 +3,7 @@
         <h1 class="title is-2 has-text-centered">ToDo List</h1>
     </section>
 
-    <div class="container">
+    <div class="container todo-box-container">
         <div class="add-todo-box">
             <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
                 <div class="field is-grouped my-0">
@@ -28,15 +28,15 @@
     <section class="section">
         <div class="container">
             <div class="todo-list">
-                <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
+                <div class="todo-item" (click)="onClick(todo)" *ngFor="let todo of todos; index as i" [class.completed]="todo.completed">
                     <div class="check-box">
                         <i class="material-icons">check</i>
                     </div>
                     <div class="todo-text">
                         {{todo.text}}
                     </div>
-                    <div class="todo-cotrols-box">
-                        <div class="todo-control-button is-danger">
+                    <div class="todo-cotrols-box" >
+                        <div class="todo-control-button is-danger" appToolTip toolTipContent='Delete!' (click)="onDelete(todo)">
                             <i class="material-icons">delete</i>
                         </div>
                     </div>

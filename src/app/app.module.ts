@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { TodolistComponent } from './todolist/todolist.component';
 import { FormsModule } from '@angular/forms';
-
+import { ToolTipDirective } from './Service/tool-tip.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
+    ToolTipDirective,
    
   ],
   imports: [
@@ -22,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatTableModule,
     FormsModule,
-     
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
