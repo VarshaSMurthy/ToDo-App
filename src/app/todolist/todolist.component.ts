@@ -19,6 +19,7 @@ export class TodolistComponent implements OnInit {
   //   this.todos=this.dataService.getAllTodos()
   this.dataService.getAllTodos().subscribe(data => {
     console.log(data)
+
     this.todos = data
     console.log(this.todos)
   }
@@ -31,7 +32,9 @@ onFormSubmit(form:NgForm){
   console.log(form)
   
   if (form.invalid) return alert("Form is invalid!")
-  this.dataService.addTodo(form.value.text)
+  this.dataService.addTodo(form.value.text).subscribe(data => {
+    this.todos = data
+  })
 }
 
 onClick(todo: Todo){
