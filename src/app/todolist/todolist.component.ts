@@ -19,8 +19,7 @@ export class TodolistComponent implements OnInit {
   //   this.todos=this.dataService.getAllTodos()
   this.dataService.getAllTodos().subscribe(data => {
     console.log(data)
-    this.data = data
-    this.todos = this.data.name
+    this.todos = data
     console.log(this.todos)
   }
   );
