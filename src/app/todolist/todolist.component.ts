@@ -10,7 +10,8 @@ import { Todo } from '../Service/todo.model';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
-   
+  
+  public data: any = [];
   todos!: Todo[]
   constructor(private dataService: DataService) { }
 
@@ -18,7 +19,8 @@ export class TodolistComponent implements OnInit {
   //   this.todos=this.dataService.getAllTodos()
   this.dataService.getAllTodos().subscribe(data => {
     console.log(data)
-    this.todos = data
+    this.data = data
+    this.todos = this.data.name
     console.log(this.todos)
   }
   );
