@@ -31,7 +31,7 @@ onFormSubmit(form:NgForm){
   console.log(form)
   
   if (form.invalid) return alert("Form is invalid!")
-  this.dataService.addTodo(new Todo(form.value.text))
+  this.dataService.addTodo(form.value.text)
 }
 
 onClick(todo: Todo){
