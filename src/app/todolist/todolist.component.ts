@@ -16,15 +16,17 @@ export class TodolistComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-  //   this.todos=this.dataService.getAllTodos()
-  this.dataService.getAllTodos().subscribe(data => {
-    console.log(data)
+  this.getData();
+  }
 
+getData(){
+this.dataService.getAllTodos().subscribe(data => {
+    console.log(data)
     this.todos = data
     console.log(this.todos)
-  }
-  );
-  }
+}
+);
+}
 
 onFormSubmit(form:NgForm){
   
@@ -37,7 +39,8 @@ onFormSubmit(form:NgForm){
   }
   this.dataService.addTodo(test).subscribe(data => {
     this.todos = data
-  })
+  });
+  this.getData();
 }
 
 onClick(todo: Todo){
@@ -49,11 +52,10 @@ onDelete(todo: Todo["id"]){
   //const index = this.todos.id;
   console.log(todo);
   this.dataService.deleteTodo(todo).subscribe(data => {
-
     console.log(data)
-
     this.todos = data
   }
   );
+this.getData();
 }
 }
