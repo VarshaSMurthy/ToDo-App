@@ -32,7 +32,10 @@ onFormSubmit(form:NgForm){
   console.log(form)
   
   if (form.invalid) return alert("Form is invalid!")
-  this.dataService.addTodo(form.value.text).subscribe(data => {
+  const test = {
+    "title": form.value.text,
+  }
+  this.dataService.addTodo(test).subscribe(data => {
     this.todos = data
   })
 }

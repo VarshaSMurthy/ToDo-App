@@ -33,7 +33,7 @@ export class DataService {
   // addTodo(todo:Todo){
   //   this.todos.push(todo);
   // }
-  addTodo(todo:Todo){
+  addTodo(todo:Todo["title"]){
     return this.http.post<Todo[]>(this.todoUrl+"task-create"+"/", todo, this.httpOptions);
   }
   deleteTodo(index:Todo["id"]){
