@@ -42,8 +42,15 @@ onClick(todo: Todo){
   todo.completed=!todo.completed;
 }
 
-onDelete(todo: Todo){
-  const index = this.todos.indexOf(todo)
-  this.dataService.deleteTodo(index)
+onDelete(todo: Todo["id"]){
+  //const index = this.todos.id;
+  console.log(todo);
+  this.dataService.deleteTodo(todo).subscribe(data => {
+
+    console.log(data)
+
+    this.todos = data
+  }
+  );
 }
 }

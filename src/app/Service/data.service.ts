@@ -36,7 +36,8 @@ export class DataService {
   addTodo(todo:Todo){
     return this.http.post<Todo[]>(this.todoUrl+"task-create"+"/", todo, this.httpOptions);
   }
-  deleteTodo(index:number){
-    this.todos.splice(index, 1)
+  deleteTodo(index:Todo["id"]){
+    return this.http.delete<Todo[]>(this.todoUrl+"task-delete"+"/"+index+"/");
+//    this.todos.splice(index, 1)
   }
 }

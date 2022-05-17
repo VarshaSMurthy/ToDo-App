@@ -36,7 +36,7 @@
                         {{todo.title}}
                     </div>
                     <div class="todo-cotrols-box" >
-                        <div class="todo-control-button is-danger" appToolTip toolTipContent='Delete!' (click)="onDelete(todo)">
+                        <div class="todo-control-button is-danger" appToolTip toolTipContent='Delete!' (click)="onDelete(this.todo.id)">
                             <i class="material-icons">delete</i>
                         </div>
                     </div>
