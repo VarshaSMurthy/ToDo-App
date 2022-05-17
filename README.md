@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+BACK END USING DJANGO
+##################################
+
+To run the backend server execute the below command from ToDoAPI folder:
+python3 manage.py runserver
+
+When we update the model.py execute
+python3 manage.py makemigrations
+python3 manage.py migrate
